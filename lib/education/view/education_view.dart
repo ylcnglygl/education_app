@@ -1,3 +1,5 @@
+import 'package:beautifulflutter/constants/color_constants.dart';
+import 'package:beautifulflutter/constants/text_constants.dart';
 import 'package:beautifulflutter/education/widgets/best_skills_card.dart';
 import 'package:beautifulflutter/education/widgets/circle_group_build.dart';
 import 'package:beautifulflutter/education/widgets/education_build.dart';
@@ -7,7 +9,6 @@ import 'package:beautifulflutter/education/widgets/title_build.dart';
 import 'package:beautifulflutter/education/widgets/trending_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
 class EducationView extends StatelessWidget {
   EducationView({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class EducationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffEAE9E5),
+      backgroundColor: ColorConstants.backgroundColor,
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(canvasColor: Color(0xffFCFCFD)),
         child: ClipRRect(
@@ -79,7 +80,29 @@ class EducationView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SvgPicture.asset("assets/logo.svg"),
-                  Image.asset("assets/img_profile.png"),
+                  Stack(
+                    children: [
+                      Image.asset("assets/img_profile.png"),
+                      Positioned(
+                        left: 65,
+                        top: 17,
+                        child: Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(0xffEAE9E5)),
+                            child: Center(
+                              child: Container(
+                                  width: 7,
+                                  height: 7,
+                                  decoration: BoxDecoration(
+                                      color: Colors.red,
+                                      shape: BoxShape.circle)),
+                            )),
+                      )
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -118,7 +141,7 @@ class EducationView extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  titleBuild("WATCH HISTORY"),
+                  titleBuild(TextConstants.firstListCardTitle),
                   Padding(
                     padding: const EdgeInsets.only(right: 16.0),
                     child: Container(
@@ -135,12 +158,13 @@ class EducationView extends StatelessWidget {
               ),
             ),
             historyCardBuild(),
+            educationBuild(context),
             Padding(
               padding: const EdgeInsets.only(left: 24.0, top: 24.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  titleBuild("TRENDING NOW"),
+                  titleBuild(TextConstants.secondListCardTitle),
                   Padding(
                     padding: const EdgeInsets.only(right: 16.0),
                     child: circleGroupBuild(),
@@ -154,7 +178,7 @@ class EducationView extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  titleBuild("BEST SKILLS"),
+                  titleBuild(TextConstants.thirdListCardTitle),
                   Padding(
                     padding: const EdgeInsets.only(right: 16.0),
                     child: circleGroupBuild(),
@@ -163,7 +187,6 @@ class EducationView extends StatelessWidget {
               ),
             ),
             bestSkillsCardBuild(),
-            educationBuild(context),
           ],
         ),
       ),

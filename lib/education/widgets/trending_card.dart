@@ -12,7 +12,7 @@ Container trendingCardBuild() {
   ];
 
   return Container(
-    height: 206,
+    height: 210,
     child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: trendingImages.length,
@@ -29,17 +29,77 @@ Container trendingCardBuild() {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Stack(
-                      children: [
-                        Image.asset(
-                          "assets/trending/${trendingImages[index]}.png",
-                          height: 146,
-                          width: 128,
-                        ),
-                        cardTitleBuild(context, index),
-                      ],
+                    Container(
+                      height: 200,
+                      child: Stack(
+                        children: [
+                          Image.asset(
+                            "assets/trending/${trendingImages[index]}.png",
+                            height: 146,
+                            width: 128,
+                          ),
+                          cardTitleBuild(context, index),
+                          Positioned(
+                            top: 125,
+                            child: Text(
+                              index % 2 == 0 ? "Dieter Rams" : "Dvorah Lansky",
+                              style: const TextStyle(
+                                fontSize: 10,
+                                color: Color(0xffA29E90),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 140,
+                            child: SizedBox(
+                              width: 120,
+                              child: Text(
+                                index % 2 == 0
+                                    ? "Illustrator 2021 MasterClass"
+                                    : "The Ultimate Drawing Course",
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 173,
+                            child: Row(
+                              children: const [
+                                Icon(
+                                  Icons.star,
+                                  size: 10,
+                                  color: Color(0xffC1AA6A),
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 10,
+                                  color: Color(0xffC1AA6A),
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 10,
+                                  color: Color(0xffC1AA6A),
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 10,
+                                  color: Color(0xffD9D6CD),
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 10,
+                                  color: Color(0xffD9D6CD),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    const Text("asd"),
                   ],
                 ),
               ),

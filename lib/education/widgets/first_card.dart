@@ -1,3 +1,4 @@
+import 'package:beautifulflutter/constants/text_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -32,7 +33,7 @@ SizedBox firstCardBuild() {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              "Dieter Rams",
+                              TextConstants.firstCardTitle,
                               style: TextStyle(
                                   fontSize: 12,
                                   color: index % 2 == 1
@@ -43,7 +44,7 @@ SizedBox firstCardBuild() {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              "A Simple Guide to Pricing Your Virtual Products",
+                              TextConstants.firstCardSubtitle,
                               style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
